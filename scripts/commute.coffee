@@ -10,4 +10,4 @@ leave = (robot) ->
   -> robot.messageRoom '#general', '퇴근할 시간입시다! 오늘 하루도 수고하셨습니다 :)'
 
 work = (robot) ->
-  -> robot.messageRoom '#general', '9시 10분 전 입니다! 출근 도장 꼭 찍으세요! :)'
+  -> robot.messageRoom '#general', '9시 10분 전 입니다! 출근 도장 꼭 찍으세요! 오늘도 파이팅! :)'
