@@ -1,4 +1,4 @@
-DAY = 1000 * 60 * 60  * 24
+DAY = 1000 * 60 * 60 * 24
 
 module.exports = (robot) ->
   robot.respond /병역 (.*)$/i, (msg) ->
