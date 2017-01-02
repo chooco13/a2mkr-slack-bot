@@ -7,7 +7,13 @@ module.exports = (robot) ->
   workJob.start()
 
 leave = (robot) ->
-  -> robot.messageRoom '#general', '퇴근할 시간입시다! 오늘 하루도 수고하셨습니다 :)'
+  Date date = new Date()
+  date.setHours(0, 0, 0, 0)
+
+  if not (date.getDay() is 0 or date.getDay() is 6) then -> robot.messageRoom '#general', '퇴근할 시간입시다! 오늘 하루도 수고하셨습니다 :)'
 
 work = (robot) ->
-  -> robot.messageRoom '#general', '9시 10분 전 입니다! 출근 도장 꼭 찍으세요! 오늘도 파이팅! :)'
+  Date date = new Date()
+  date.setHours(0, 0, 0, 0)
+  
+  if not (date.getDay() is 0 or date.getDay() is 6) then -> robot.messageRoom '#general', '9시 10분 전 입니다! 출근 도장 꼭 찍으세요! 오늘도 파이팅! :)'
