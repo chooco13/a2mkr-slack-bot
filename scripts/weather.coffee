@@ -7,6 +7,6 @@ module.exports = (robot) ->
 		json = JSON.parse body
 		todayWeather = json['main'][0]
 		location = json['name'][0]
-		Temp = todayWeather['temp']
-		msg.send '지역은 '+location+'입니다. 현재 온도는' + Temp + '℃입니다.'
+		
+		msg.send '지역은 '+location+'입니다. 현재 온도는 ℃입니다.'
 
