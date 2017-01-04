@@ -1,7 +1,7 @@
 DAY = 1000 * 60 * 60 * 24
 
 module.exports = (robot) ->
-  robot.respond /근무일 (.*)$/i, (msg) ->
+  robot.respond /근무 (.*)$/i, (msg) ->
     name = decodeURIComponent(unescape(msg.match[1]))
     switch(name) # MM/DD/YYYY
       when "종훈", "박종훈" then getWorkDays(msg, new Date("05/23/2016"))
