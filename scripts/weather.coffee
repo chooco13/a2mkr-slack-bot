@@ -2,8 +2,8 @@ weatherURL = 'http://api.openweathermap.org/data/2.5/weather?q='
 apiKey = '8b693a3e5f2d1e9bbfc8908514e9d2bd'
 	
 module.exports = (robot) ->
-	robot.respond /날씨$/i, (msg) ->
-		 weatherFor(msg)
+	robot.hear /날씨/i, (msg) ->	
+		weatherFor(msg) 
 
 	weatherFor = (msg) ->
 		robot.http(weatherURL + 'daejeon' + '&appid=' + apiKey).get() (err, res, body) ->
