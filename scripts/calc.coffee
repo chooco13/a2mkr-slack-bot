@@ -3,7 +3,7 @@
 #
 # Commands:
 #   hubot calc <expression> - 사칙연산(+,-,*,/) 계산 결과를 출력합니다.
-
+# Citation Guide http://hyeonjae.github.io/hubot/2015/04/23/hubot-scripts.html
 lexer = (_expr) ->
   `var tokenList`
   expr = _expr
