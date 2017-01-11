@@ -3,6 +3,8 @@
 #
 # Commands:
 #   hubot lotto - 로또 번호를 무작위로 생성합니다.
+# Citation Guide http://hyeonjae.github.io/hubot/2015/04/23/hubot-scripts.html
+
 getLottery = (msg) ->
   i = 0
   count = 6
