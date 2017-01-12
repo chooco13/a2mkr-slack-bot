@@ -106,7 +106,7 @@ module.exports = (robot) ->
  weatherFor = (msg) ->
   robot.http(weatherURL + 'daejeon' + '&appid=' + apiKey).get() (err, res, body) ->
    json = JSON.parse body
-   weatherName = koreanWeatherMap[json.weather[0].id]
+   weatherName = koreanWeatherMap[json.weather[0].id] + "(" + json.weather[0].description + ")"
    
    # 번역되지 않았을 경우 그대로 보여줌
    if weatherName.length is 0 
