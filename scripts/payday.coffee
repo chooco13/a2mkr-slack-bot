@@ -51,5 +51,5 @@ restday = (msg)->
     payday = new Date(payday - DAY)
 
   #현재 날짜와 월급날짜를 빼기연산하여 계산
-  restday = (today.getTime() - payday.getTime())/DAY
-  msg.send "월급날이 "+restday+"일 남았습니다."
+  rest = (payday.getTime()-today.getTime())/DAY
+  msg.send "월급날이 "+rest+"일 남았습니다."
