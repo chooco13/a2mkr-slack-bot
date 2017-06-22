@@ -1,4 +1,5 @@
 moment = require('moment');
+moment.locale('ko')
 
 weatherURL = 'http://api.openweathermap.org/data/2.5/weather?q=daejeon&appid=8b693a3e5f2d1e9bbfc8908514e9d2bd&lang=kr&units=metric'
 dailyURL = 'http://api.openweathermap.org/data/2.5/forecast/daily?q=daejeon&appid=8b693a3e5f2d1e9bbfc8908514e9d2bd&lang=kr&units=metric';
@@ -30,7 +31,7 @@ module.exports = (robot) ->
       json.list.forEach (daily) ->
         weather = daily.weather[0].description + '(' + daily.weather[0].main + ')';
 
-        message += moment.unix(daily.dt).format('MM월 DD일') + '\n';
+        message += moment.unix(daily.dt).format('MM월 DD일 (ddd)') + '\n';
         message += '날씨 : ' + weather + '\n';
         message += '최저 : ' + daily.temp.min + '°C\n';
         message += '최고 : ' + daily.temp.max + '°C\n';
