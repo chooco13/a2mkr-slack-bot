@@ -33,10 +33,7 @@ module.exports = (robot) ->
 
         message += moment.unix(daily.dt).format('MM월 DD일 (ddd)') + '\n';
         message += '날씨 : ' + weather + '\n';
-        message += '최저 : ' + daily.temp.min + '°C\n';
-        message += '최고 : ' + daily.temp.max + '°C\n';
-
-        message += '\n';
+        message += '최저 : ' + Math.round(daily.temp.min) + '°C, 최고 : ' + Math.round(daily.temp.max) + '°C\n\n';
 
       message = message.trim();
 
