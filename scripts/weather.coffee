@@ -3,6 +3,7 @@ moment.locale('ko')
 
 appKey = '03a951f2-ffdc-3d1f-8edf-4da9045c1658';
 weatherURL = 'http://apis.skplanetx.com/weather/current/hourly?lon=127.42&village=&county=&lat=36.32&city=&version=1';
+wctIndexURL = 'http://apis.skplanetx.com/weather/windex/wctindex?lon=127.42&lat=36.32&version=1'
 dailyURL = 'http://apis.skplanetx.com/weather/summary?lon=127.42&village=&county=&foretxt=&lat=36.32&city=&version=1';
 
 module.exports = (robot) ->
@@ -13,16 +14,24 @@ module.exports = (robot) ->
     getDailyWeather(msg)
 
   weatherFor = (msg) ->
+    message  = ''
+
     robot.http(weatherURL).header('appKey', appKey).get() (err, res, body) ->
       json = JSON.parse body
 
       weather = json.weather.hourly[0];
 
-      message = "대전의 현재 날씨는 '" + weather.sky.name + "' 입니다.\n현재 기온는 " + Math.round(weather.temperature.tc) + "°C 입니다.\n\n";
+      message = "대전의 현재 날씨는 '" + weather.sky.name + "' 입니다.\n\n";
 
-      message += '날씨 데이터는 SK Planet에서 제공한 데이터를 사용하고 있습니다.';
+      message += '기온는 ' + Math.round(weather.temperature.tc) + '°C 입니다.\n';
+      message += '습도는 ' + Math.round(weather.humidity) + '% 입니다.\n'
+	    robot.http(wctIndexURL).header('appKey', appKey).get() (err, res, body) ->
+        wctindex = JSON.parse body
+        message += '체감온도는 ' + Math.round(wctindex.weather.wIndex.wctIndex[0].current.index) + '°C 입니다.\n\n';
 
-      msg.send message
+        message += '날씨 데이터는 SK Planet에서 제공한 데이터를 사용하고 있습니다.';
+
+        msg.send message
 
 
   getDailyWeather = (msg) ->
