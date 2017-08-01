@@ -24,14 +24,11 @@ module.exports = (robot) ->
       message = "대전의 현재 날씨는 '" + weather.sky.name + "' 입니다.\n\n";
 
       message += '기온는 ' + Math.round(weather.temperature.tc) + '°C 입니다.\n';
-      message += '습도는 ' + Math.round(weather.humidity) + '% 입니다.\n'
-	    robot.http(wctIndexURL).header('appKey', appKey).get() (err, res, body) ->
-        wctindex = JSON.parse body
-        message += '체감온도는 ' + Math.round(wctindex.weather.wIndex.wctIndex[0].current.index) + '°C 입니다.\n\n';
+      message += '습도는 ' + Math.round(weather.humidity) + '% 입니다.\n\n'
 
-        message += '날씨 데이터는 SK Planet에서 제공한 데이터를 사용하고 있습니다.';
+      message += '날씨 데이터는 SK Planet에서 제공한 데이터를 사용하고 있습니다.';
 
-        msg.send message
+      msg.send message
 
 
   getDailyWeather = (msg) ->
