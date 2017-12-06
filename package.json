@@ -6,6 +6,7 @@
   "description": "a2m-bot",
   "dependencies": {
     "cron": "1.1.0",
+    "firebase-admin": "^5.5.1",
     "hubot": "^2.19.0",
     "hubot-diagnostics": "0.0.1",
     "hubot-google-images": "^0.2.6",
