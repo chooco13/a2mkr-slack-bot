@@ -1,10 +1,10 @@
 moment = require('moment');
 moment.locale('ko')
 
-appKey = '03a951f2-ffdc-3d1f-8edf-4da9045c1658';
-weatherURL = 'http://apis.skplanetx.com/weather/current/hourly?lon=127.42&village=&county=&lat=36.32&city=&version=1';
-wctIndexURL = 'http://apis.skplanetx.com/weather/windex/wctindex?lon=127.42&lat=36.32&version=1'
-dailyURL = 'http://apis.skplanetx.com/weather/summary?lon=127.42&village=&county=&foretxt=&lat=36.32&city=&version=1';
+appKey = 'c72c7393-6813-4f93-971d-9b57b20e6dd6';
+weatherURL = 'http://api2.sktelecom.com/weather/current/hourly?lon=127.42&village=&county=&lat=36.32&city=&version=1';
+wctIndexURL = 'http://api2.sktelecom.com/weather/windex/wctindex?lon=127.42&lat=36.32&version=1'
+dailyURL = 'http://api2.sktelecom.com/weather/summary?lon=127.42&village=&county=&foretxt=&lat=36.32&city=&version=1';
 
 module.exports = (robot) ->
   robot.hear /날씨/i, (msg) ->
@@ -25,8 +25,6 @@ module.exports = (robot) ->
 
       message += '기온는 ' + Math.round(weather.temperature.tc) + '°C 입니다.\n';
       message += '습도는 ' + Math.round(weather.humidity) + '% 입니다.\n\n'
-
-      message += '날씨 데이터는 SK Planet에서 제공한 데이터를 사용하고 있습니다.';
 
       msg.send message
 
@@ -59,8 +57,6 @@ module.exports = (robot) ->
       message += '날씨 : ' + dayAfterTomorrow.sky.name + '\n';
       message += '최저 : ' + Math.round(dayAfterTomorrow.temperature.tmin) + '°C\n';
       message += '최고 : ' + Math.round(dayAfterTomorrow.temperature.tmax) + '°C\n\n';
-
-      message += '날씨 데이터는 SK Planet에서 제공한 데이터를 사용하고 있습니다.';
 
       message = message.trim();
 
