@@ -14,7 +14,7 @@ module.exports = (robot) ->
     getDailyWeather(msg)
 
   weatherFor = (msg) ->
-    message  = ''
+    message = ''
 
     robot.http(weatherURL).header('appKey', appKey).get() (err, res, body) ->
       json = JSON.parse body
