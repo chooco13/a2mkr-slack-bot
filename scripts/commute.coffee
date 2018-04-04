@@ -1,5 +1,12 @@
 cronJob = require('cron').CronJob
 
+http = require("http");
+setInterval (->
+  http.get 'https://a2mkr-slack-bot.herokuapp.com/'
+  console.log 'wake up!'
+  return
+), 300000
+
 module.exports = (robot) ->
   leaveJob = new cronJob('0 0 18 * * *', leave(robot), null, true, "Asia/Seoul")
   leaveJob.start()
